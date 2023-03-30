@@ -72,17 +72,18 @@ let rotated = rotation * original
 
 // ------
 // vForce
+// - Setup
 import Accelerate
 let length = 4096
 var x: [Float] = (0 ..< length).map { i in Float(i) * 2 * Float.pi / Float(length) }
 
-// Classic mode
+// - Classic mode
 var y = [Float](repeating: 0, count: x.count)
 var n = Int32(x.count)
 vvcosf(&y, &x, &n)
 print(y[2048])
 
-// Simple mode
+// - Simple mode
 var y2 = vForce.cos(x)
 print(y[2048])
 
